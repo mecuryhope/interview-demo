@@ -1,0 +1,121 @@
+问题：
+    1.Exception和Error的区别
+    2.运行时异常和一般异常的区别
+    3.写出几种常见的运行时异常
+
+标准回答：
+  1.Exception和Error的区别
+    Exception和Error都继承自Throwable，在Java中只有Throwable类型的实例才可以被抛出或捕获。
+    Error指正常情况下不太可能出现的情况，绝大部分的Error或导致程序崩溃，处于非正常的不可恢复的状态，
+        如OutOfMemoryError、StackOverflowError。
+        是程序中不应该试图捕获的严重问题。
+    Exception是程序正常运行中可以预料的意外情况，可以捕获并处理。
+
+  2.运行时异常和一般异常的区别
+    受检查异常：在编译时被强制检查的异常。在方法的声明中声明的异常。
+            (举例：ClassNotFoundException、IOException)
+    不受检查异常：不受检查异常通常是在编码中可以避免的逻辑错误，根据需求来判断如何处理，不需要再编译期强制要求。
+
+  3.写出几种常见的运行时异常(考察编程经验)
+    运行时异常RuntimeException是所有不受检查异常的基类。
+    NullPointerException、ClassCastException、NumberFormatException、IndexOutOfBoundsException。
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+问题：
+    ClassNotFoundException和NoClassDefFoundError区别？
+
+解答：
+ClassNotFoundException 当应用程序运行的过程中尝试使用类加载器去加载Class文件的时候，
+    如果没有在classpath中查找到指定的类，就会抛出ClassNotFoundException。
+    一般情况下，当我们使用Class.forName()时会出现这种异常，比如加载JDBC驱动类
+NoClassDefFoundError 并不需要应用程序去关心catch的问题。
+   当JVM在加载一个类的时候，如果这个类在编译时是可用的，
+   但是在运行时找不到这个类的定义的时候，JVM就会抛出一个NoClassDefFoundError错误。
+   一般情况下，在使用框架时，如果框架组件依赖了某个包，而没有导入，就会出现这个问题，或者由于版本问题导致。
+
+
+
+问题：throw和throws的区别
+
+标准回答：
+    throw是在方法体内，手动抛出的异常，一次只能抛出一个异常对象，由方法体处理，如果方法体内不处理，则需要在方法上声明throws
+    throws是在方法声明时，表名该方法可能产生的所有异常，不做任何处理直接向上层传
+
+
+问题：你对异常有什么了解
+    尽量不要捕获类似Exception这样的通用异常
+    不要生吞异常，即catch到之后不处理
+    在实际产品中，要借助日志
+    try-catch会产生额外的性能开销,不要一个大的try包住大段代码
+
+
+
+
+
+
+
+
+
+
+
+
+
